@@ -17,10 +17,7 @@ int main() {
 	while (1) {
 	    x += velocity_x;
 		y += velocity_y;
-		
-		printf("--------------------\n");
-	    printf("|                  |\n");
-	    printf("--------------------\n"); 			
+				
 		system("cls");
 		
 		for (i = 0; i < x; i++) {
