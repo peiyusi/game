@@ -2,18 +2,24 @@
 #include <stdlib.h>
 #include <windows.h>
 
-int main() {
-	int i, j;
-	int x = 1;
-	int y = 10;
-	
-	int top = 0;
-	int bottom = 10;
-	int left = 0;
-	int right = 20; 
-	int velocity_x = 1;
-	int velocity_y = 1;
-    
+int i, j;
+int x, y;
+int top, bottom;
+int left, right; 
+int velocity_x, velocity_y;
+
+void startup() {
+	x = 1;
+	y = 10;
+	top = 0;
+	bottom = 10;
+	left = 0;
+	right = 20;
+	velocity_x = 1;
+	velocity_y = 1; 
+}
+
+void show() {
 	while (1) {
 	    x += velocity_x;
 		y += velocity_y;
@@ -39,6 +45,9 @@ int main() {
 			printf("\a");
 		}
     }
-	
+}
+int main() {
+    startup();
+    show();   
 	return 0;
 }
