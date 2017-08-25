@@ -13,6 +13,7 @@ int enemy_x[EnemyNum], enemy_y[EnemyNum];
 
 int score;
 int EnemyMoveSpeed;
+int BulletWidth;
 
 void gotoxy(int x, int y) {
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -23,6 +24,9 @@ void gotoxy(int x, int y) {
 }
 
 void startup() {
+	score = 0;
+	EnemyMoveSpeed = 20;
+	BulletWidth = 0; 
     position_x = High - 1;
 	position_y = Width / 2; 
 	canvas[position_x][position_y] = 1;
@@ -32,8 +36,7 @@ void startup() {
 		enemy_y[k] = rand() % Width;
 		canvas[enemy_x[k]][enemy_y[k]] = 3;
 	}
-	score = 0;
-	EnemyMoveSpeed = 20;
+	
 }
 
 void show() {
@@ -65,6 +68,15 @@ void updateWithoutInput() {
     			for (k = 0; k < EnemyNum; k++) {
     				if (i == enemy_x[k] && j == enemy_y[k]) {
     					score++;
+    					if (score % 10 == 0 && EnemyMoveSpeed > 3) {
+    						EnemyMoveSpeed--;
+						}
+						if (score % 10 == 0) {
+							if (BulletWidth < 5) {
+								BulletWidth++;
+							}
+						}
+						
     					canvas[enemy_x[k]][enemy_y[k]] == 0;
     					enemy_x[k] = rand() % 2;
     					enemy_y[k] = rand() % Width;
@@ -78,8 +90,7 @@ void updateWithoutInput() {
 				}
 			}
 		}
-	}
-	
+   }
 	static int speed = 0; 
 	if (speed < EnemyMoveSpeed) {
 		speed++;
@@ -131,7 +142,18 @@ void updateWithInput() {
 		    position_y++;
 		    canvas[position_x][position_y] = 1;
 		} else if (input == ' ') {
-			canvas[position_x-1][position_y] = 2;
+			int k;
+			int left = position_y - BulletWidth;
+			int right = position_y + BulletWidth;
+			if (left < 0) {
+				left = 0;
+			}
+			if (right > Width - 1) {
+				right = Width - 1;
+			}
+			for (k = left; k <= right; k++) {
+				canvas[position_x-1][k] = 2;
+			}
 		}
 		
 		
