@@ -6,6 +6,5 @@ Just for fun(●'◡'●))
 
 ### PS: 
 This is my first serious coding work, hope I can walk into the CS's gate by this.
-
-### PPS:
-If you've got the basic images files and sounds files, maybe you can move on your mouse and have some fun.
+ 
+By the way, using mouse to play such a game is damn easy, maybe is for infants lol.
