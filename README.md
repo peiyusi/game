@@ -1,1 +1,4 @@
-# 学习内容来自知乎专栏 做游戏，学编程（C语言）https://zhuanlan.zhihu.com/p/24633092
+# Just for fun, and you even CANNOT play it!(no picture or sound file(●'◡'●))<br>
+------------------------------------------------------------------------------
+# Ps: 'Screenshot'<br>
+----------------
